@@ -5,10 +5,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        // pluralize("cat", 8);
         System.out.println(pluralize("cat", 1));
         flipNHeads(2);
-        // clock();
+        clock();
 
     }
     public static String pluralize (String word, int num){
@@ -19,12 +18,9 @@ public class Main {
     }
     public static void flipNHeads(int n){
         int counterHead = 0;
-        int counterTail =0;
         int counter =0;
         double rando;
-        // while (ifHead == true){
 
-            //counterhead = 0;     n = 3
         while (counterHead != n){
             rando = Math.random();
             if(rando > 0.5){
