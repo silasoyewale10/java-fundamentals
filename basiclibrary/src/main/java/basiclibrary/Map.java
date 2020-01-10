@@ -9,7 +9,7 @@ public class Map {
                 {55, 54, 60, 53, 59, 57, 61},
                 {65, 56, 55, 52, 55, 62, 57}
         });
-        tally();
+//        tally();
     }
 
     public static String testMapMethod(int[][] arr) {
@@ -22,7 +22,7 @@ public class Map {
                 weather.add(val);  //unique array of weather
             }
         }
-        System.out.println(weather);
+//        System.out.println(weather);
 //        Scanner reader = new Scanner();
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
@@ -44,44 +44,61 @@ public class Map {
 
             if (!weather.contains(i)) {
 
-                answer += String.format("Never saw temperature %d ", i);
+                answer += String.format("\nNever saw temperature %d ", i);
             }
 
         }
+        System.out.println("answer = " + answer);
         return answer;
     }
 
-    public static void tally () {
-        List<String> votes = new ArrayList<>();
-        votes.add("Bush");
-        votes.add("Bush");
-        votes.add("Bush");
-        votes.add("Shrub");
-        votes.add("Hedge");
-        votes.add("Shrub");
-        votes.add("Bush");
-        votes.add("Hedge");
-        votes.add("Bush");
-        System.out.print(votes);
+    public static String tally (List<String> votes) {
+//        List<String> votes = new ArrayList<>();
+//        votes.add("Bush");
+//        votes.add("Bush");
+//        votes.add("Bush");
+//        votes.add("Shrub");
+//        votes.add("Hedge");
+//        votes.add("Shrub");
+//        votes.add("Bush");
+//        votes.add("Hedge");
+//        votes.add("Bush");
+//        System.out.print(votes);
 
         HashMap<String, Integer> electionByNameAndVote = new HashMap<>();
         HashSet<String> numOfVotes = new HashSet<>();
 
-        //        for(int i = 0; i < votes.size(); i ++){
-        //set all names to satart with 0.
-        // go through each name
-//        for (String vote : votes) {
-//            int count = 0;
-//            String name = votes.get(i);
-//            electionByNameAndVote.put(name, i); //'bob, 8';
-//            if (electionByNameAndVote.get(name) > 0) {
-//                count++;
-//                winner = name;
-//                count++;
-//                electionByNameAndVote.put(name, count);
-//            }
-//
-//        }
+        for (String name:votes){
+            electionByNameAndVote.put(name, 0);
+        }
+//        System.out.println(electionByNameAndVote);
+int highestVoteCounter= Integer.MIN_VALUE;
+        String highestVoteWinner = "";
+
+        for(int i = 0; i < votes.size(); i++) {
+            String eachName = votes.get(i);
+            electionByNameAndVote.put(eachName, 0);
+            for(String vote: votes){
+                if(eachName == vote){
+                    electionByNameAndVote.put(eachName, electionByNameAndVote.get(eachName)+1);
+                }
+            }
+//            String highestVoteWinner = "";
+
+            System.out.println("electionByNameAndVote = " + electionByNameAndVote);
+            for(String participant: electionByNameAndVote.keySet()){
+                int eachParticipantScore = electionByNameAndVote.get(participant);
+                if( eachParticipantScore > highestVoteCounter){
+                    highestVoteWinner = participant;
+                    highestVoteCounter = eachParticipantScore;
+                }
+            }
+
+        }
+        System.out.println("highestVoteCounter = " + highestVoteCounter);
+        System.out.println("winner = " + highestVoteWinner);
+//        System.out.println("electionByNameAndVote = " + electionByNameAndVote);
+        return highestVoteWinner;
     }
 
 }
