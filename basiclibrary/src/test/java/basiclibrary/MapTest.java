@@ -2,6 +2,9 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class MapTest {
@@ -16,9 +19,25 @@ public class MapTest {
         assertEquals("Never saw temperature 63 Never saw temperature 67 Never saw temperature 68 Never saw temperature 69 ", obj.testMapMethod(testArray) );
 
     }
-    @Test public void testMapMethod2() {
-        int [][] arr2 = {{6,9,3,7},{9,3,1,6},{0,76,32}};
+//    @Test public void testMapMethod2() {
+//        int [][] arr2 = {{6,9,3,7},{9,3,1,6},{0,76,32}};
+//
+//    }
 
+    @Test public void testTallyMethod() {
+//        Map obj = new Map ();
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+assertEquals("Bush", Map.tally(votes));
     }
+
 
 }
