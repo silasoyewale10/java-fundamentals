@@ -39,4 +39,68 @@ public class RestaurantTest {
         assertEquals(3, res1.numOfStars);
     }
 
+    @Test public void testShopToString() {
+        Shop test1 = new Shop("Burger King", "Not too bad", 4);
+        assertEquals("We are Burger King and our rating is 4 and we can be described as Not too bad", test1.toString());
+    }
+
+    @Test public void testShopAddReview() {
+        Shop res1 = new Shop("Ghu Kaku", "Aint bad", 5);
+        res1.addReview(new Review("good food", "Chelsea", 3));
+
+        Review first = new Review("good food", "Chelsea", 5);
+        res1.addReview(first);
+        System.out.println(res1.numOfStars);
+        assertEquals(4,res1.numOfStars);
+    }
+    @Test public void testTheaterAddMovie( ){
+        Theater amc = new Theater("amc");
+        Movie obj = new Movie("Lionking");
+        amc.addMovie(obj);
+        amc.addMovie(new Movie("Dracula"));
+        amc.addMovie(new Movie("Hakuna Matata"));
+        amc.addMovie(new Movie("Silas is King"));
+        System.out.println("hfhfdhfhj" + amc.printMovies());
+        assertEquals(" Lionking Dracula Hakuna Matata Silas is King",amc.printMovies());
+    }
+
+    @Test public void testTheaterRemoveMovie( ){
+        Theater amc = new Theater("amc");
+        Movie obj1 = new Movie("Lionking");
+        amc.addMovie(obj1);
+
+        Movie obj2 = new Movie("Dracula");
+        amc.addMovie(obj2);
+
+        Movie obj3 = new Movie("Hakuna Matata");
+        amc.addMovie(obj3);
+
+        Movie obj4 = new Movie("Silas is King");
+        amc.addMovie(obj4);
+
+        amc.removeMovie(obj1);
+        amc.removeMovie(obj2);
+
+        System.out.println("hfhfdhfhj" + amc.moviesShowing);
+        assertEquals("[Hakuna Matata, Silas is King]",amc.moviesShowing.toString());
+    }
+
+    @Test public void testTheaterJustAsReviewableAsRestaurant( ) {
+        Theater reviews = new Theater("ammmd");
+        Theater reviewable1 = new Theater("amc");
+        reviewable1.addReview(new Review("Horrible seats", "Jesse", 2));
+
+        Theater reviewable2 = new Theater("laville");
+        reviewable2.addReview(new Review("Great scenery", "Lukaku", 4));
+
+//        assertEquals(3, res1.numOfStars);
+
+
+
+    }
+    @Test public void individualMovieReferencing(){
+
+    }
+
+
 }
