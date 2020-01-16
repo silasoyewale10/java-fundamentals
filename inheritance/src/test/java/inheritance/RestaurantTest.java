@@ -86,21 +86,14 @@ public class RestaurantTest {
     }
 
     @Test public void testTheaterJustAsReviewableAsRestaurant( ) {
-        Theater reviews = new Theater("ammmd");
-        Theater reviewable1 = new Theater("amc");
-        reviewable1.addReview(new Review("Horrible seats", "Jesse", 2));
+        Theater amc  = new Theater("AMC");
 
-        Theater reviewable2 = new Theater("laville");
-        reviewable2.addReview(new Review("Great scenery", "Lukaku", 4));
+        amc.addReview(new Review("Horrible seats", "Jesse", 2));
+        amc.addReview(new Review("Great scenery", "Lukaku", 5));
+        amc.addReview(new Review("Late", "Dinho", 3));
+        amc.addReview(new Review("Dirty", "Ataoja", 3));
+        amc.addReview(new Review("Not friendly", "Manner", 2));
 
-//        assertEquals(3, res1.numOfStars);
-
-
-
+        assertEquals(3, amc.numOfStars);
     }
-    @Test public void individualMovieReferencing(){
-
-    }
-
-
 }
